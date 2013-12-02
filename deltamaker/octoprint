@@ -1,0 +1,9 @@
+#!/bin/sh
+OCTOPRINT_HOME=/home/pi/OctoPrint
+MJPEG_STREAMER_HOME=/home/pi/mjpg-streamer/mjpg-streamer-experimental
+
+# start mjpeg streamer
+$MJPEG_STREAMER_HOME/mjpg_streamer -i "$MJPEG_STREAMER_HOME/input_uvc.so -r SXGA -f 15" -o "$MJPEG_STREAMER_HOME/output_http.so" &
+
+# start the webui
+$OCTOPRINT_HOME/run --daemon start
