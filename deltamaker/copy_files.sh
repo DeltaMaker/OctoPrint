@@ -2,7 +2,7 @@
 # Script to setup the pi...
 
 # Files to copy:
-cd -f /home/pi/OctoPrint/deltamaker
+cd /home/pi/OctoPrint/deltamaker
 # /home/pi/.octoprint/config.yaml
 cp -f config.yaml /home/pi/.octoprint/config.yaml
 # /home/pi/bin/octoprint
