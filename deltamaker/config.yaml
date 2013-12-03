@@ -58,7 +58,7 @@ controls:
   name: Calibration
   type: section
 feature:
-  sdSupport: false
+  sdSupport: false  
 printerParameters:
   movementSpeed:
     e: 250
@@ -83,7 +83,7 @@ system:
   - command: sudo /home/pi/OctoPrint/deltamaker/update.sh
     confirm: You are about to update Octoprint.
     name: Check for Updates
-  - command: sudo /home/pi/OctoPrint/deltamaker/loadfirmware.sh 
+  - command: sudo /home/pi/OctoPrint/deltamaker/load_firmware.sh 
     confirm: You are about to reload the Marlin firmware.
     name: Reload Firmware
 temperature:
