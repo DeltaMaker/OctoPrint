@@ -10,8 +10,6 @@ cp -f octoprint /home/pi/bin/octoprint
 
 # /etc/rc.local
 sudo cp -f rc.local /etc/rc.local
-# /etc/sudoers.d/octoprint-shutdown
-sudo cp -f octoprint-shutdown /etc/sudoers.d/octoprint-shutdown
 # /etc/haproxy/haproxy.cfg
 sudo cp -f haproxy.cfg /etc/haproxy/haproxy.cfg
 # /etc/default/haproxy
