@@ -13,5 +13,6 @@ if subprocess.call(command.split()) == 1: #Exit status 1 is failure.
 
 command = "sudo pip install -r requirements.txt"
 subprocess.call(command.split())
+sys.exit(0)
 
 #cd ~/OctoPrint && git pull && sudo pip install -r requirements.txt
