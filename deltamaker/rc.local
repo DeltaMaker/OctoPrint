@@ -17,5 +17,5 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-sudo -u pi /home/pi/bin/octoprint
+sudo -u pi /home/pi/OctoPrint/deltamaker/update.py 
 exit 0

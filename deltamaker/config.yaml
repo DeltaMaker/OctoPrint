@@ -2,7 +2,7 @@ accessControl: {}
 api:
   key: 281999670AD64475BC5DF74B30A6565D
 appearance:
-  name: DeltaMaker 003
+  name: DeltaMaker
 controls:
 - children:
   - command: M220 S%(percent)s
@@ -58,7 +58,7 @@ controls:
   name: Calibration
   type: section
 feature:
-  sdSupport: false  
+  sdSupport: false
 printerParameters:
   movementSpeed:
     e: 250
@@ -80,6 +80,14 @@ system:
     command: sudo shutdown -r now
     confirm: You are about to reboot the system
     name: Reboot
+  - action: update
+    command: /home/pi/OctoPrint/deltamaker/setup.py
+    confirm: You are about to update OctoPrint.  (Internet connection required)
+    name: Check for Updates
+  - action: firmware
+    command: /home/pi/OctoPrint/deltamaker/loadfirmware.py
+    confirm: You are about to reload the Marlin firmware.  The printer will reboot automatically.  
+    name: Reload Firmware
 temperature:
   profiles:
   - bed: '0'
