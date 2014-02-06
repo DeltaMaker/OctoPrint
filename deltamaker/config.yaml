@@ -34,7 +34,7 @@ controls:
     name: Move Nozzle to Bed
     type: commands
   - commands:
-    - G29 R0.1
+    - G29 R0.05
     - G91
     - G1 Z1
     - G1 Z-1
@@ -42,7 +42,7 @@ controls:
     name: Too Low
     type: commands
   - commands:
-    - G29 R-0.1
+    - G29 R-0.05
     - G91
     - G1 Z1
     - G1 Z-1
@@ -67,7 +67,9 @@ serial:
   autoconnect: true
   baudrate: 250000
   port: /dev/ttyUSB0
-  timeout: {}
+  timeout:
+    communication: 30.0
+    connection: 20.0
 server:
   firstRun: false
 system:
