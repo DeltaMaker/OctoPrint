@@ -29,7 +29,7 @@ controls:
     type: commands
   - commands:
     - G28
-    - G1 Z30 F4000
+    - G1 Z30 F3000
     - G1 Z0 F500
     name: Move Nozzle to Bed
     type: commands
@@ -49,13 +49,43 @@ controls:
     - G90
     name: Too High
     type: commands
+  - commands:
+    - G28
+    - M500
+    name: Save & Home
+    type: commands
+  name: Bed Leveling & Nozzle Height
+  type: section
+- children:
+  - commands:
+    - G1 Z20 F3000
+    - G29 M
+    - G1 Z0 F1000
+    name: Next Point
+    type: commands
+  - commands:
+    - G29 L0.05
+    - G91
+    - G1 Z1
+    - G1 Z-1
+    - G90
+    name: Too Low
+    type: commands
+  - commands:
+    - G29 L-0.05
+    - G91
+    - G1 Z1
+    - G1 Z-1
+    - G90
+    name: Too High
+    type: commands
   - command: M500
     name: SAVE
     type: command
   - command: M501
     name: Discard Changes
     type: command
-  name: Calibration
+  name: Manual Calibration (advanced)
   type: section
 feature:
   sdSupport: false
@@ -68,8 +98,8 @@ serial:
   baudrate: 250000
   port: /dev/ttyUSB0
   timeout:
-    communication: 30.0
-    connection: 20.0
+    communication: 10.0
+    connection: 5.0
 server:
   firstRun: false
 system:
@@ -88,7 +118,7 @@ system:
     name: Check for Updates
   - action: firmware
     command: /home/pi/OctoPrint/deltamaker/loadfirmware.py
-    confirm: You are about to reload the Marlin firmware.  The printer will reboot automatically.  
+    confirm: You are about to reload the Marlin firmware.  The printer will reboot automatically.
     name: Reload Firmware
 temperature:
   profiles:
@@ -96,4 +126,11 @@ temperature:
     extruder: '230'
     name: DM-PLA
 webcam:
+  ffmpeg: /usr/bin/avconv
+  snapshot: http://127.0.0.1:8080/?action=snapshot
+  stream: http://deltamaker.local:8080/?action=stream
+  timelapse:
+    options:
+      interval: 5
+    type: timed
   watermark: false
