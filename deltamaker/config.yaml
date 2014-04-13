@@ -59,7 +59,7 @@ controls:
 - children:
   - commands:
     - G1 Z20 F3000
-    - G29 M
+    - G29 M20
     - G1 Z0 F1000
     name: Next Point
     type: commands
