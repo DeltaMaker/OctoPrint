@@ -29,7 +29,7 @@ controls:
     type: commands
   - commands:
     - G28
-    - G1 Z30 F3000
+    - G1 Z30 F2000
     - G1 Z0 F500
     name: Move Nozzle to Bed
     type: commands
@@ -58,10 +58,10 @@ controls:
   type: section
 - children:
   - commands:
-    - G1 Z20 F3000
-    - G29 M20
-    - G1 Z0 F1000
-    name: Next Point
+    - G1 Z5 F3000
+    - G29 M5
+    - G1 Z0 F3000
+    name: Next Calibration Point
     type: commands
   - commands:
     - G29 L0.05
@@ -69,7 +69,7 @@ controls:
     - G1 Z1
     - G1 Z-1
     - G90
-    name: Too Low
+    name: Point Too Low
     type: commands
   - commands:
     - G29 L-0.05
@@ -77,7 +77,7 @@ controls:
     - G1 Z1
     - G1 Z-1
     - G90
-    name: Too High
+    name: Point Too High
     type: commands
   - command: M500
     name: SAVE
