@@ -119,7 +119,7 @@ system:
   - action: update
     command: /home/pi/OctoPrint/deltamaker/setup.py
     confirm: You are about to update OctoPrint.  Internet connection is required.
-     name: Check for Updates
+    name: Check for Updates
   - action: firmware
     command: /home/pi/OctoPrint/deltamaker/loadfirmware.py
     confirm: You are about to reload the Marlin firmware.  Please wait 3 minutes for the printer to reboot.
