@@ -114,8 +114,8 @@ system:
     name: Reboot
   - action: reset
     command: /home/pi/OctoPrint/deltamaker/resetsettings.py
-    confirm: You are about to reset the OctoPrint settings.  OctoPrint will restart momentarily.
-    name: Reset to Factory Settings
+    confirm: You are about to reset the OctoPrint settings.  Page refresh will be required.
+    name: Reset Settings
   - action: update
     command: /home/pi/OctoPrint/deltamaker/setup.py
     confirm: You are about to update OctoPrint.  Internet connection is required.
