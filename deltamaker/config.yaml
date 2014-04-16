@@ -85,7 +85,7 @@ controls:
   - command: M501
     name: Discard Changes
     type: command
-  name: Manual Calibration (advanced)
+  name: Touch Probe Calibration (advanced)
   type: section
 feature:
   sdSupport: false
