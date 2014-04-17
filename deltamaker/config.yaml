@@ -29,7 +29,7 @@ controls:
     type: commands
   - commands:
     - G28
-    - G1 Z30 F4000
+    - G1 Z30 F2000
     - G1 Z0 F500
     name: Move Nozzle to Bed
     type: commands
@@ -49,13 +49,43 @@ controls:
     - G90
     name: Too High
     type: commands
+  - commands:
+    - G28
+    - M500
+    name: Save & Home
+    type: commands
+  name: Bed Leveling & Nozzle Height
+  type: section
+- children:
+  - commands:
+    - G1 Z5 F3000
+    - G29 M5
+    - G1 Z0 F3000
+    name: Next Calibration Point
+    type: commands
+  - commands:
+    - G29 L0.05
+    - G91
+    - G1 Z1
+    - G1 Z-1
+    - G90
+    name: Point Too Low
+    type: commands
+  - commands:
+    - G29 L-0.05
+    - G91
+    - G1 Z1
+    - G1 Z-1
+    - G90
+    name: Point Too High
+    type: commands
   - command: M500
     name: SAVE
     type: command
   - command: M501
     name: Discard Changes
     type: command
-  name: Calibration
+  name: Touch Probe Calibration (advanced)
   type: section
 feature:
   sdSupport: false
@@ -68,8 +98,8 @@ serial:
   baudrate: 250000
   port: /dev/ttyUSB0
   timeout:
-    communication: 30.0
-    connection: 20.0
+    communication: 10.0
+    connection: 5.0
 server:
   firstRun: false
 system:
@@ -80,15 +110,19 @@ system:
     name: Shutdown
   - action: reboot
     command: sudo shutdown -r now
-    confirm: You are about to reboot the system
+    confirm: You are about to reboot the system.
     name: Reboot
+  - action: reset
+    command: /home/pi/OctoPrint/deltamaker/resetsettings.py
+    confirm: You are about to reset the OctoPrint settings.  Page refresh will be required.
+    name: Reset Settings
   - action: update
     command: /home/pi/OctoPrint/deltamaker/setup.py
-    confirm: You are about to update OctoPrint.  (Internet connection required)
+    confirm: You are about to update OctoPrint.  Internet connection is required.
     name: Check for Updates
   - action: firmware
     command: /home/pi/OctoPrint/deltamaker/loadfirmware.py
-    confirm: You are about to reload the Marlin firmware.  The printer will reboot automatically.  
+    confirm: You are about to reload the Marlin firmware.  Please wait 3 minutes for the printer to reboot.
     name: Reload Firmware
 temperature:
   profiles:
