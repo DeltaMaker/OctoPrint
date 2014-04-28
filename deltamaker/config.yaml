@@ -64,7 +64,7 @@ controls:
     name: Next Calibration Point
     type: commands
   - commands:
-    - G29 L0.05
+    - G29 L0.02
     - G91
     - G1 Z1
     - G1 Z-1
@@ -72,7 +72,7 @@ controls:
     name: Point Too Low
     type: commands
   - commands:
-    - G29 L-0.05
+    - G29 L-0.02
     - G91
     - G1 Z1
     - G1 Z-1
